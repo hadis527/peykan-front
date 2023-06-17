@@ -3,40 +3,15 @@ import UserProfile from '../components/UserProfile';
 import UserPosts from '../components/UserPosts';
 import '../app/globals.css'
 import MainLayout from "../components/shared/mainLayout";
-// import ProfilePic from "../assets/images/profile.jfif";
-
+import { useSelector } from 'react-redux';
 const UserrofilePage = () => {
-  const user = {
-    profilePicture: "/images/profile.jfif",
-    username: 'Hadis',
-    bio: 'Software Developer',
-  };
-  const posts = [
-    {
-      id: 1,
-      profilePicture: "/images/profile.jfif",
-      content: "Hadis",
-      timestamp: "456"
-    },
-    {
-      id: 2,
-      profilePicture: "/images/profile.jfif",
-      content: "Hadis",
-      timestamp: "123"
-    },
-    {
-      id: 3,
-      profilePicture: "/images/profile.jfif",
-      content: "Hadis",
-      timestamp: "123"
-    },
-    {
-      id: 3,
-      profilePicture: "/images/profile.jfif",
-      content: "Hadis",
-      timestamp: "123"
-    }
-  ]
+  const postSate = useSelector(state => state.post);
+  const { postList} = postSate;
+  const profileState = useSelector(state => state.profile);
+  const {user} = profileState;
+  console.log(user ,"user");
+
+
   return (
     <MainLayout>
       <UserProfile
@@ -44,7 +19,7 @@ const UserrofilePage = () => {
         username={user.username}
         bio={user.bio}
       />
-      <UserPosts posts={posts} />
+      <UserPosts posts={postList} />
 
     </MainLayout>
   );

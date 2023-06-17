@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 
 const UserProfileForm = ({ initialProfile, onSave }) => {
   const [profile, setProfile] = useState(initialProfile);
+  // useEffect(() => {
 
+  // },[profile])
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setProfile((prevProfile) => ({
-      ...prevProfile,
+    let value = e.target.value;
+    let name = e.target.name;
+    setProfile({
+      ...profile,
       [name]: value,
-    }));
+    });
   };
 
   const handleSubmit = (e) => {
@@ -29,10 +32,12 @@ const UserProfileForm = ({ initialProfile, onSave }) => {
         </label>
         <input
           className="border border-gray-300 p-2 rounded w-full"
-          type="file"
+          // type="file"
           name="profilePicture"
           value={profile.profilePicture}
-          onChange={handleChange}
+          onChange={(e) => handleChange(e)}
+          id="profilePicture"
+
         />
       </div>
       <div className="mb-4 w-full">
@@ -42,10 +47,10 @@ const UserProfileForm = ({ initialProfile, onSave }) => {
         </label>
         <input
           className="border border-gray-300 p-2 rounded w-full"
-          type="text"
           name="username"
+          id="username"
           value={profile.username}
-          onChange={handleChange}
+           onChange={(e) => handleChange(e)}
         />
       </div>
       <div className="mb-4 w-full">
@@ -56,7 +61,8 @@ const UserProfileForm = ({ initialProfile, onSave }) => {
           className="border border-gray-300 p-2 rounded w-full"
           name="bio"
           value={profile.bio}
-          onChange={handleChange}
+          onChange={(e) => handleChange(e)}
+          id="bio"
         />
       </div>
       <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">

@@ -1,51 +1,27 @@
 import {
-    ADD_TO_DO_LIST,
-    UPDATE_TO_DO_LIST,
-    DELETE_TO_DO_LIST,
-    TO_DO_LIST,
-    UPDATE_TO_DO_MODAL
+    UPDATE_PROFILE_INFO,
+    GET_PROFILE_INFO,
 } from './const';
-import RecordController from '../../controllers/RecordController';
 const INIT_STATE = {
-    profileList: [],
-    updateprofileModal :false,
+    user: {
+        profilePicture: "/images/profile.jfif",
+        username: 'Hadis',
+        bio: 'Software Developer',
+      },
 };
 export default (state = INIT_STATE, action) => {
     switch (action.type) {
-        case TO_DO_LIST:
+        case GET_PROFILE_INFO:
             return {
                 ...state,
                 profileList:  action.payload
             }
-        case ADD_TO_DO_LIST:
+        case UPDATE_PROFILE_INFO:
             return {
                 ...state,
-                profileList: RecordController.add(
-                    state.profileList,
-                    action.payload
-                ),
+                user: action.payload
             }
-        case UPDATE_TO_DO_LIST:
-            return {
-                ...state,
-                profileList: RecordController.update(
-                    state.profileList,
-                    action.payload
-                ),
-            }
-        case DELETE_TO_DO_LIST:
-            return {
-                ...state,
-                profileList: RecordController.delete(
-                    state.profileList,
-                    action.payload
-                ),
-            }
-        case UPDATE_TO_DO_MODAL:
-            return{
-                ...state,
-                updateprofileModal: action.payload
-            }
+
         default: return { ...state };
     }
 }

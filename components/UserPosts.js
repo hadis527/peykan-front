@@ -5,8 +5,8 @@ const UserPosts = ({ posts }) => {
   return (
 
       <div className="grid grid-cols-3 gap-4">
-        {posts.map((post) => (
-          <div className="">
+        {posts.map((post ,index) => (
+          <div className="" key ={index}>
             <div className="w-48">
               <img src={post.profilePicture} alt="Your Image" className="w-full h-auto" />
             </div>

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import {addToPostList} from "../redux/post/actions";
 
 const PostCreationForm = ({ onPostCreate }) => {
+  const dispatch = useDispatch();
   const [postContent, setPostContent] = useState('');
   const [imageFile, setImageFile] = useState(null);
 
@@ -15,10 +18,11 @@ const PostCreationForm = ({ onPostCreate }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append('content', postContent);
-    formData.append('image', imageFile);
-    onPostCreate(formData);
+    dispatch(addToPostList({id:5 , profilePicture :"/images/profile.jfif" , content :postContent }))
+    // const formData = new FormData();
+    // formData.append('content', postContent);
+    // formData.append('image', imageFile);
+    // onPostCreate(formData);
     setPostContent('');
     setImageFile(null);
   };

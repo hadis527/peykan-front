@@ -2,22 +2,20 @@ import React from 'react';
 import UserProfileForm from '../components/UserProfileForm';
 import MainLayout from "../components/shared/mainLayout";
 import '../app/globals.css'
+import { useSelector ,useDispatch } from 'react-redux';
+import {updateProfileInfo} from "../redux/profile/actions";
 
 const EditProfilePage = () => {
-  const initialProfile = {
-    profilePicture: '/images/profile.jfif',
-    username: 'Hadis',
-    bio: 'I m Hadis. I live in Iran',
-  };
-
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.profile.user);
   const handleSave = (updatedProfile) => {
-    console.log(updatedProfile);
+    dispatch(updateProfileInfo(updatedProfile));
   };
 
   return (
     <MainLayout>
       <h1 className="text-2xl font-bold mb-4">Edit Profile</h1>
-      <UserProfileForm initialProfile={initialProfile} onSave={handleSave} />
+      <UserProfileForm initialProfile={user} onSave={handleSave} />
     </MainLayout>
   );
 };
