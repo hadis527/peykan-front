@@ -15,15 +15,27 @@ const UserrofilePage = () => {
     {
       id: 1,
       profilePicture: "/images/profile.jfif",
-      username: "Hadis",
+      content: "Hadis",
       timestamp: "456"
     },
     {
-        id: 2,
-        profilePicture: "/images/profile.jfif",
-        username: "Hadis",
-        timestamp: "123"
-      }
+      id: 2,
+      profilePicture: "/images/profile.jfif",
+      content: "Hadis",
+      timestamp: "123"
+    },
+    {
+      id: 3,
+      profilePicture: "/images/profile.jfif",
+      content: "Hadis",
+      timestamp: "123"
+    },
+    {
+      id: 3,
+      profilePicture: "/images/profile.jfif",
+      content: "Hadis",
+      timestamp: "123"
+    }
   ]
   return (
     <MainLayout>
@@ -32,7 +44,7 @@ const UserrofilePage = () => {
         username={user.username}
         bio={user.bio}
       />
-       <UserPosts posts={posts} />
+      <UserPosts posts={posts} />
 
     </MainLayout>
   );

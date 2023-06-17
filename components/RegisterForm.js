@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { signUp } from 'next-auth/react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const RegisterForm = () => {
   const router = useRouter();

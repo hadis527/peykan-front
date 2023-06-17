@@ -19,7 +19,7 @@ const MainLayout = ({ children }) => {
         }
     }
     return (
-        <div class="flex flex-col h-screen">
+        <div class="flex flex-col h-screen overflow-auto">
             <header class="flex justify-between items-center bg-gray-800 text-white py-4 px-6">
                 <div class="flex items-center">
                     <nav class="mr-6">

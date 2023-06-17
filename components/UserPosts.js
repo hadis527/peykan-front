@@ -3,24 +3,18 @@ import React from 'react';
 const UserPosts = ({ posts }) => {
 
   return (
-    <div className="space-y-4">
-      {posts.map((post) => (
-        <div key={post.id} className="flex space-x-4">
-          <img
-            className="w-10 h-10 rounded-full"
-            src={post.profilePicture}
-            alt="Profile Picture"
-          />
-          <div className="flex flex-col">
-            <div className="flex items-center space-x-2">
-              <span className="font-semibold">{post.username}</span>
-              <span className="text-gray-500">{post.timestamp}</span>
+
+      <div className="grid grid-cols-3 gap-4">
+        {posts.map((post) => (
+          <div className="">
+            <div className="w-48">
+              <img src={post.profilePicture} alt="Your Image" className="w-full h-auto" />
             </div>
-            <p>{post.content}</p>
+            <p className="text-center">{post.content}</p>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+ 
   );
 };
 
