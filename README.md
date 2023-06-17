@@ -17,5 +17,10 @@ or
 ### To run the app in the development mode:
 ### `npm run dev`
 
+### To login use below email and password:
+### `hadis@gmail.com`
+### `password`
+
+
 ### node version: 
 ### `v18.16.0`
